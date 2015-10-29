@@ -1,12 +1,17 @@
-### Archlinux Conky Configure ###
+## Conky 配置 #
+#### FileInformation[文件信息] ####
 
-#### Conky Setting ##
+* .public_ip -&gt; 获取ip脚本
+* .public_location -&gt; 获取ip地理位置信息
+* .conkyrc -&gt; conky程序配置文件
 
-* .public_ip 获取ip脚本
-* .public_location 获取ip地理位置信息
-* .conkyrc conky程序配置文件
+#### install[安装] ####
+* 安装conky主程序 `sudo pacman -S conky`
+* 下载三个文件到宿主目录 `～/`
+* 获取网络信息需要修改对应的网卡，我的网卡enp1s0, 找到地换即可 `vim: :%s/enp1s0/xx/gc`
+* sudo 密码需要修改下 在最后一行获取硬盘温度`echo 'luowen' | sudo -S hddtemp /dev/sda` 修改对应的密码即可
 
-#### 配置信息[archilinux 社区复制过来的稍微修改使用] ####
+#### detail configure[配置信息]
 <pre>
 
 ######################
@@ -121,6 +126,6 @@ ${voffset 4}${font Droid Sans:style=Bold:size=8}HD $stippled_hr${font}
   ${offset 7}Free: ${font Droid Sans:style=Bold:size=8}${fs_free /home}${font} ${alignr 1}Used: ${font Droid Sans:style=Bold:size=8}${fs_used /home}${font}
 # |--HDTEMP1
   ${voffset 7}${goto 20}${voffset -4}Temperature: ${font Droid Sans:style=Bold:size=8}${execi 120 echo 'luowen' | sudo -S hddtemp /dev/sda -n --unit=C}°C${font}${alignr}/dev/sda  # 获取硬盘温度
-
-
 </pre>
+
+[ps]: 此版本为 [archilinux](https://bbs.archlinux.org/viewtopic.php?id=39906&p=46) 社区复制过来的稍微修改使用
