@@ -1,0 +1,17 @@
+#!/bin/env python
+from urllib import request
+import re
+def main():
+    url = "http://1111.ip138.com/ic.asp"
+    with request.urlopen(url) as urlHandle:
+        for line in urlHandle:
+            string = line.decode("gb2312")
+            matchObj = re.search(r"\[.*\<\/c", string)
+            if matchObj is not None:
+                matchString = matchObj.group()
+                ip, fromWhere = matchString.split("：")
+                return ip[1: len(ip) - 4]
+        return "Public Address invalid."
+if __name__ == "__main__":
+    resultSet = main()
+    print(resultSet)
