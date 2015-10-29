@@ -5,13 +5,13 @@
 * .public_location -&gt; 获取ip地理位置信息
 * .conkyrc -&gt; conky程序配置文件
 
-#### install[安装] ####
+#### Install[安装] ####
 * 安装conky主程序 `sudo pacman -S conky`
 * 下载三个文件到宿主目录 `～/`
 * 获取网络信息需要修改对应的网卡，我的网卡enp1s0, 找到地换即可 `vim: :%s/enp1s0/xx/gc`
 * sudo 密码需要修改下 在最后一行获取硬盘温度`echo 'luowen' | sudo -S hddtemp /dev/sda` 修改对应的密码即可
 
-#### detail configure[配置信息]
+#### DetailConfigure[配置信息]
 <pre>
 
 ######################
